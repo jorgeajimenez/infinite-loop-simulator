@@ -16,8 +16,9 @@ This project uses Python for the backend to proxy Vertex AI and Earth Engine req
 
 ### Prerequisites
 
-1.  **Google Cloud Setup:** You need an active Google Cloud project with billing enabled, Vertex AI and Earth Engine APIs enabled, and a valid `service-account-key.json` in the root of this directory. **[Please read the complete CLOUD_SETUP.md guide](./CLOUD_SETUP.md) for step-by-step instructions and helpful setup scripts for Windows, Mac, and Linux.**
-2.  **uv:** Ensure you have `uv` installed.
+1.  **System Requirements:** Review the **[INSTALL_GUIDE.md](./INSTALL_GUIDE.md)** for a complete list of required tools (Git, gcloud, uv, and a modern web browser) and how to install them on your OS.
+2.  **Google Cloud Setup:** You need an active Google Cloud project with billing enabled, Vertex AI and Earth Engine APIs enabled, and a valid `service-account-key.json` in the root of this directory. **[Please read the complete CLOUD_SETUP.md guide](./CLOUD_SETUP.md)** for step-by-step instructions and helpful setup scripts for Windows, Mac, and Linux.
+3.  **uv:** Ensure you have `uv` installed.
 
 ### Start the Server
 
