@@ -1,0 +1,4 @@
+flask==3.0.2
+requests==2.31.0
+earthengine-api==0.1.391
+google-cloud-aiplatform==1.42.1
