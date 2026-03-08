@@ -1,8 +1,31 @@
 # Build with AI: Infinite Flight Simulator
 
-![Infinite Flight Simulator](assets/intro_screenshot.webp)
+![Infinite Flight Simulator](assets/intro_screenshot.png)
 
 A browser-based 3D flight simulator built with vanilla JavaScript, CesiumJS, and a Flask backend integrating Vertex AI for dynamic terraforming. It specifically demonstrates "Infinite Loop" memory architecture to survive rendering massive 3D Photorealistic Google Maps tiles without crashing the browser's V8 engine.
+
+---
+
+## 🛠 Troubleshooting Common Issues
+
+If you run into errors starting the server or generating images, check these common fixes:
+
+### 1. "Permission Denied" or "403 Forbidden"
+*   **Cause:** Your Service Account doesn't have the right permissions.
+*   **Fix:** Ensure your service account has both **Vertex AI User** and **Earth Engine Resource Viewer** roles assigned in the IAM console.
+*   **Earth Engine Note:** You may need to manually visit [earthengine.google.com/signup](https://earthengine.google.com/signup) once with your Google account to "accept" the terms of service for that project.
+
+### 2. "API Not Enabled"
+*   **Cause:** The required Google Cloud APIs are dormant.
+*   **Fix:** Ensure both **Vertex AI API** and **Google Earth Engine API** are enabled in your Google Cloud Console "APIs & Services" dashboard.
+
+### 3. "service-account-key.json not found"
+*   **Cause:** The backend can't find your credentials.
+*   **Fix:** Ensure the file you downloaded from Google Cloud is renamed to exactly `service-account-key.json` and placed in the **root** of this project (next to `app.py`).
+
+### 4. "Vertex AI Quota Exceeded"
+*   **Cause:** You've hit the rate limit for image generation on a new project.
+*   **Fix:** Wait 1-2 minutes and try again. For a workshop, this is rarely an issue unless everyone uses the same project ID (don't do that!).
 
 ---
 

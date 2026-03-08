@@ -62,6 +62,42 @@ First, you must install the **[Google Cloud CLI (`gcloud`)](https://cloud.google
 
 ---
 
+## 🧭 Walkthrough: Verifying your Setup
+
+Once you have completed the setup (automated or manual), here is how to verify everything is correct:
+
+1.  **Check for the Key:** You should see a file named `service-account-key.json` in your project folder.
+2.  **Verify the Project ID:** Open `service-account-key.json` and verify the `"project_id"` matches the one you created.
+3.  **Test Earth Engine:** Some accounts require a one-time registration for Earth Engine. Visit [earthengine.google.com/signup](https://earthengine.google.com/signup) and ensure your account is registered. If it's a new cloud project, you might need to select it from the dropdown on that page.
+
+---
+
+## 🛠 Troubleshooting
+
+### ❌ Error: "IAM Permission Denied"
+**The Problem:** The simulator starts, but image generation fails with a 403 error.
+**The Fix:** 
+1. Go to **IAM & Admin > IAM** in the Cloud Console.
+2. Find your service account (ending in `@...iam.gserviceaccount.com`).
+3. Click the pencil icon to edit.
+4. Ensure it has **Vertex AI User** and **Earth Engine Resource Viewer**.
+
+### ❌ Error: "Cloud Billing Not Enabled"
+**The Problem:** The setup script fails while enabling APIs.
+**The Fix:**
+1. Go to **Billing** in the Cloud Console.
+2. Click **My Projects**.
+3. Ensure your project has a billing account linked in the "Billing Account" column. If not, click the three dots and select **Change Billing**.
+
+### ❌ Error: "Vertex AI API Not Enabled"
+**The Problem:** The backend logs show an error about `aiplatform.googleapis.com`.
+**The Fix:**
+1. Go to **APIs & Services > Library**.
+2. Search for "Vertex AI API".
+3. If it says "Enable", click it. It can take up to 5 minutes to propagate.
+
+---
+
 ## Option 2: Manual Setup via Google Cloud Console
 
 If you prefer to set this up manually without the command line, follow these steps in your browser:
