@@ -181,7 +181,7 @@
 
                     <h2>What we're building</h2>
                     <p>A photorealistic 3D globe, terraformed in real-time by Generative AI. We are building an interactive 3D web application powered by Google Maps Photorealistic Tiles and AI-driven terraforming.</p>
-                    <img src="intro_screenshot.webp" alt="Simulator Vision">
+                    <img src="assets/intro_screenshot.webp" alt="Simulator Vision">
                     
                     <h2>What you'll need (Local Setup)</h2>
                     <ul class="dense-list">
@@ -255,7 +255,7 @@
                         <li><strong>2. Reimagine:</strong> Vertex AI (Imagen) takes your prompt and repaints the terrain.</li>
                         <li><strong>3. Project:</strong> We texture-map the new image back onto the 3D globe seamlessly using CesiumJS.</li>
                     </ul>
-                    <img src="03_cyberpunk_city.png" alt="Cyberpunk City">
+                    <img src="assets/03_cyberpunk_city.png" alt="Cyberpunk City">
                 </div>
 
                 <div class="step-content" id="step-4" style="display:none;">
@@ -357,7 +357,7 @@ const turnRate = 0.08;  // Make turns snappier</span>
                 <div class="step-content" id="step-7" style="display:none;">
                     <h1>7. Memory Management</h1>
                     <p>Browsers tightly limit memory (RAM/VRAM). Loading 3D photorealistic tiles and dynamically generated 4K textures will quickly exhaust resources, leading to crashes. Every time you terraform, you add a `Primitive`. If you don't remove old ones, WebGL crashes.</p>
-                    <img src="04_memory_eviction.png" alt="Memory Eviction">
+                    <img src="assets/04_memory_eviction.png" alt="Memory Eviction">
 
                     <h2>Garbage Collection</h2>
                     <div class="step-box">

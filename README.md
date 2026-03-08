@@ -1,13 +1,23 @@
 # Build with AI: Infinite Flight Simulator
 
+![Infinite Flight Simulator](assets/intro_screenshot.webp)
+
 A browser-based 3D flight simulator built with vanilla JavaScript, CesiumJS, and a Flask backend integrating Vertex AI for dynamic terraforming. It specifically demonstrates "Infinite Loop" memory architecture to survive rendering massive 3D Photorealistic Google Maps tiles without crashing the browser's V8 engine.
 
 ---
 
 ## Architecture Highlights
+
 - **CesiumJS Cache Annihilation:** Aggressively caps memory to 256MB.
 - **Velocity-Linked Degradation:** Dynamically drops texture resolution during high-speed turns to prevent VRAM spikes.
-- **AI Terraformer (Vertex AI & Earth Engine):** The simulator uses Vertex AI as an image-to-image generator (`imagegeneration@006`) to perform real-time "terraforming." First, the Python backend uses Google Earth Engine to grab a real, high-resolution satellite image of the terrain directly beneath the plane. That real satellite image is then passed to Vertex AI along with the user's text prompt (e.g., "Cyberpunk City"). Vertex AI generates a new, themed image matching the real-world geometry and perspective, which CesiumJS then projects back onto the 3D globe in real-time. It uses a strict FIFO queue that aggressively dereferences and destroys old patches to save memory.
+- **AI Terraformer (Vertex AI & Earth Engine):** The simulator uses Vertex AI as an image-to-image generator (`imagegeneration@006`) to perform real-time "terraforming." 
+  
+  ![Cyberpunk City Terraforming](assets/03_cyberpunk_city.png)
+  
+  First, the Python backend uses Google Earth Engine to grab a real, high-resolution satellite image of the terrain directly beneath the plane. That real satellite image is then passed to Vertex AI along with the user's text prompt (e.g., "Cyberpunk City"). Vertex AI generates a new, themed image matching the real-world geometry and perspective, which CesiumJS then projects back onto the 3D globe in real-time. It uses a strict FIFO queue that aggressively dereferences and destroys old patches to save memory.
+  
+  ![Memory Eviction UI](assets/04_memory_eviction.png)
+
 - **V8 Heap Monitor:** Real-time memory usage readout on the HUD.
 
 ## Running the Project (For Demo)
