@@ -1,5 +1,11 @@
 # Build with AI: Infinite Flight Simulator
 
+![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)
+![Flask](https://img.shields.io/badge/Flask-3.0.2-green.svg)
+![CesiumJS](https://img.shields.io/badge/CesiumJS-WebGL-blueviolet)
+![Google Cloud Vertex AI](https://img.shields.io/badge/Vertex%20AI-Image%20Generation-orange)
+![License: ISC](https://img.shields.io/badge/License-ISC-yellow.svg)
+
 ![Infinite Flight Simulator](assets/intro_screenshot.png)
 
 A browser-based 3D flight simulator built with vanilla JavaScript, CesiumJS, and a Flask backend integrating Vertex AI for dynamic terraforming. It specifically demonstrates "Infinite Loop" memory architecture to survive rendering massive 3D Photorealistic Google Maps tiles without crashing the browser's V8 engine.
