@@ -71,9 +71,10 @@ echo ""
 gcloud config set project "$PROJECT_ID"
 
 # Enable APIs
-echo "⚡ Enabling Vertex AI and Earth Engine APIs..."
+echo "⚡ Enabling Vertex AI, Earth Engine, and Map Tiles APIs..."
 gcloud services enable aiplatform.googleapis.com
 gcloud services enable earthengine.googleapis.com
+gcloud services enable mapbox-maps-api.googleapis.com || gcloud services enable maptiles.googleapis.com || echo "Please enable Map Tiles API manually in the console"
 
 echo "✅ APIs enabled."
 echo ""

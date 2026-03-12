@@ -1644,7 +1644,7 @@
                     height: 100%;
                     top: 0;
                     left: 0;
-                    transform-origin: center center;
+                    transform-origin: top left;
                 }
 
                 .radar-grid {
@@ -1849,10 +1849,28 @@
                     });
                 }
 
-                function zoomMap(factor) {
+                function zoomMap(factor, e = null) {
                     const oldScale = mapScale;
                     mapScale *= factor;
                     mapScale = Math.max(1, Math.min(mapScale, 5)); // Limit zoom between 1x and 5x
+                    
+                    const actualFactor = mapScale / oldScale;
+
+                    if (e) {
+                        const rect = mapWrapper.getBoundingClientRect();
+                        const mouseX = e.clientX - rect.left;
+                        const mouseY = e.clientY - rect.top;
+
+                        mapPanX = mouseX - (mouseX - mapPanX) * actualFactor;
+                        mapPanY = mouseY - (mouseY - mapPanY) * actualFactor;
+                    } else {
+                        // Zoom to center if no event provided (e.g. buttons)
+                        const rect = mapWrapper.getBoundingClientRect();
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        mapPanX = centerX - (centerX - mapPanX) * actualFactor;
+                        mapPanY = centerY - (centerY - mapPanY) * actualFactor;
+                    }
                     
                     // Adjust pan to zoom towards center
                     if (mapScale === 1) {
@@ -1892,9 +1910,9 @@
                 mapWrapper.addEventListener('wheel', (e) => {
                     e.preventDefault();
                     if (e.deltaY < 0) {
-                        zoomMap(1.1);
+                        zoomMap(1.1, e);
                     } else {
-                        zoomMap(0.9);
+                        zoomMap(0.9, e);
                     }
                 }, { passive: false });
 
@@ -1984,7 +2002,7 @@
             // GDG FLIGHT SIMULATOR v3.0 - Full Physics + 3D Aircraft + GPWS
             // ================================================================
 
-            const GOOGLE_API_KEY = "AIzaSyCYhXJl-cbvQEnVyAK9yUNn-Xrya9QUmBg";
+            const GOOGLE_API_KEY = "YOUR_GOOGLE_MAPS_API_KEY_HERE";
 
             let viewer, tileset;
 

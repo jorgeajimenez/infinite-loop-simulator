@@ -78,9 +78,10 @@ Write-Host ""
 gcloud config set project "$PROJECT_ID"
 
 # Enable APIs
-Write-Host "⚡ Enabling Vertex AI and Earth Engine APIs..." -ForegroundColor Cyan
+Write-Host "⚡ Enabling Vertex AI, Earth Engine, and Map Tiles APIs..." -ForegroundColor Cyan
 gcloud services enable aiplatform.googleapis.com
 gcloud services enable earthengine.googleapis.com
+gcloud services enable maptiles.googleapis.com
 
 Write-Host "✅ APIs enabled." -ForegroundColor Green
 Write-Host ""

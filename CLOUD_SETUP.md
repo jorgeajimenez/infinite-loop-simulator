@@ -127,8 +127,11 @@ If you prefer to set this up manually without the command line, follow these ste
 5. Click on the email address of your new service account, go to the **Keys** tab, click **Add Key** > **Create new key**.
 6. Select **JSON** and click **Create**. The key will download.
 
-### 5. Final Step: Place the Key
-1. Rename the downloaded file to exactly `service-account-key.json`.
-2. Move it into the root folder of the `infinite-loop-simulator` project.
+### 5. Final Step: Place the Keys
+
+You have two keys to set up:
+
+1.  **Service Account Key (Backend):** Rename the downloaded JSON file to exactly `service-account-key.json` and move it into the root folder of the `infinite-loop-simulator` project.
+2.  **API Key (Frontend):** Go to **APIs & Services** > **Credentials**. Click **Create Credentials** > **API key**. Copy this key, open `index.html` in your code editor, and replace the `"YOUR_GOOGLE_MAPS_API_KEY_HERE"` placeholder near line 2000 with your actual API key.
 
 You are now ready to start the server! Return to the [README.md](./README.md) for instructions.
